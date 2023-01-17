@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import withLoading from '../../hoc/withLoading';
 import Header from "../../components/Header";
 import News from "../../components/News";
 import SearchQuery from "../../components/SearchQuery";
@@ -8,7 +9,7 @@ import SearchQuery from "../../components/SearchQuery";
 import { getScienceNews } from "../../services/NewsService";
 import { changeData, changeSearch } from "../../store/news/newsSlice";
 
-function Science() {
+function Science({ setLoading, loading }) {
   const dispatch = useDispatch();
   const newsData = useSelector((state) => state.news.data);
   const searchQuery = useSelector((state) => state.news.search);
@@ -19,10 +20,13 @@ function Science() {
 
   const fetchData = async () => {
     try {
+      setLoading(true);
       const response = await getScienceNews();
       dispatch(changeData(response.data.articles));
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,4 +46,4 @@ function Science() {
   );
 }
 
-export default Science;
+export default withLoading(Science);

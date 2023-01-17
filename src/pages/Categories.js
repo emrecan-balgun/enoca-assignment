@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Select from "react-select";
+
 import DropdownList from "react-widgets/DropdownList";
 import "react-widgets/styles.css";
 
+import withLoading from '../hoc/withLoading';
 import Header from "../components/Header";
 import News from "../components/News";
 import SearchQuery from "../components/SearchQuery";
@@ -11,7 +12,7 @@ import SearchQuery from "../components/SearchQuery";
 import { getNews } from "../services/NewsService";
 import { changeData, changeSearch } from "../store/news/newsSlice";
 
-function Categories() {
+function Categories({ setLoading, loading }) {
   const dispatch = useDispatch();
   const newsData = useSelector((state) => state.news.data);
   const searchQuery = useSelector((state) => state.news.search);
@@ -35,10 +36,13 @@ function Categories() {
 
   const fetchData = async () => {
     try {
+      setLoading(true);
       const response = await getNews();
       dispatch(changeData(response.data.articles));
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -70,4 +74,4 @@ function Categories() {
   );
 }
 
-export default Categories;
+export default withLoading(Categories);

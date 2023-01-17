@@ -6,11 +6,11 @@ import News from "../components/News";
 import NewsSlider from "../components/NewsSlider";
 import Paginiation from "../components/Paginiation";
 import SearchQuery from "../components/SearchQuery";
-
+import withLoading from '../hoc/withLoading';
 import { getNews } from "../services/NewsService";
 import { changeData, changeSearch } from "../store/news/newsSlice";
 
-function Home() {
+function Home({ setLoading, loading }) {
   const dispatch = useDispatch();
 
   const [totalResult, setTotalResult] = useState(0);
@@ -25,11 +25,14 @@ function Home() {
 
   const fetchData = async () => {
     try {
+      setLoading(true);
       const response = await getNews();
       dispatch(changeData(response.data.articles));
       setTotalResult(response.data.totalResults);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -51,4 +54,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default withLoading(Home);
