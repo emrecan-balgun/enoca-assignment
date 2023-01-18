@@ -27,7 +27,7 @@ function Paginiation({ data }) {
   };
 
   return (
-    <nav aria-label="Page navigation example">
+    <nav className="flex justify-center pt-4">
       <ul className="inline-flex items-center -space-x-px">
         {newsData.length > 0 && pageNumbers.map((number, key) => (
           <li key={key} onClick={() => handleClick(number)}>

@@ -53,8 +53,8 @@ function About() {
   return (
     <div>
       <Header />
-      <div className="flex flex-row pt-4">
-        <div className="w-1/2">
+      <div className="flex flex-col md:flex-row pt-4 pl-4 pr-4 md:pl-0 md:pr-0">
+        <div className="w-full md:w-1/2">
           <h1 className="text-5xl tracking-tighter font-semibold">
             {`Hi! I'm Emrecan`}{" "}
             <span
@@ -75,7 +75,7 @@ function About() {
           <h2 className="text-2xl mt-4 mb-2 font-medium">
             Tech stack:
           </h2>
-          <div className="flex flex-row gap-10 flex-wrap">
+          <div className="flex flex-row gap-4 md:gap-10 flex-wrap">
             <div className="flex flex-row gap-1 items-center">
               <AiFillCheckCircle size={18} />
               <span>HTML</span>
@@ -102,7 +102,7 @@ function About() {
             </div>
           </div>
         </div>
-        <div className="w-1/2">
+        <div className="hidden md:block md:w-1/2">
           <img src={AboutImg} alt="about-img" />
         </div>
       </div>

@@ -55,10 +55,10 @@ function Categories({ setLoading, loading }) {
   return (
     <>
       <Header />
-      <div className="flex flex-col pt-4">
+      <div className="flex flex-col pt-4 pr-4 pl-4 md:pr-0 md:pl-0">
         {searchQuery.length > 0 && <SearchQuery searchQuery={searchQuery} />}
-        <div className="flex flex-row gap-10">
-          <div className="w-1/4">
+        <div className="flex flex-col md:flex-row md:gap-10">
+          <div className="w-full md:w-1/4">
             <DropdownList
                 data={authors}
                 dataKey='id'
@@ -67,7 +67,7 @@ function Categories({ setLoading, loading }) {
                 onChange={(value) => { setSelectedAuthor(value.label)}}
               />
           </div>
-          <div className="w-3/4"><News data={newsData.filter((item) => item.author === selectedAuthor)} /></div>
+          <div className="w-full pt-4 md:pt-0 md:w-3/4"><News data={newsData.filter((item) => item.author === selectedAuthor)} /></div>
         </div>
       </div>
     </>

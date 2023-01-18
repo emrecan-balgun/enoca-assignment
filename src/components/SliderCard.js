@@ -4,11 +4,11 @@ function SliderCard({ data }) {
   return (
     <div className="flex justify-center">
       <div className="flex flex-col md:flex-row md:max-w-full rounded-lg bg-white p-4">
-        <img
-          className="w-full md:h-52 object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
-          src={data.urlToImage}
-          alt=""
-        />
+          <img
+            className="w-full md:h-52 object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+            src={data.urlToImage}
+            alt="news-photo"
+          />
         <div className="p-6 flex flex-col justify-start">
           <h5 className="text-gray-900 text-xl font-medium mb-2">
             {data.title}
