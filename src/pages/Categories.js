@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import DropdownList from "react-widgets/DropdownList";
-import "react-widgets/styles.css";
+import "react-widgets/styles.css"; // for 13 warnings
 
-import withLoading from '../hoc/withLoading';
+import withLoading from "../hoc/withLoading";
 import Header from "../components/Header";
 import News from "../components/News";
 import SearchQuery from "../components/SearchQuery";
-
 import { getNews } from "../services/NewsService";
 import { changeData, changeSearch } from "../store/news/newsSlice";
 
@@ -28,7 +27,7 @@ function Categories({ setLoading, loading }) {
       label: item,
     }));
     setAuthors(options);
-  }
+  };
 
   const cleanSearchQuery = () => {
     dispatch(changeSearch(""));
@@ -50,6 +49,7 @@ function Categories({ setLoading, loading }) {
     cleanSearchQuery();
     fetchData();
     getAuthors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -60,14 +60,20 @@ function Categories({ setLoading, loading }) {
         <div className="flex flex-col md:flex-row md:gap-10">
           <div className="w-full md:w-1/4">
             <DropdownList
-                data={authors}
-                dataKey='id'
-                textField='label'
-                defaultValue={'Choose authors'}
-                onChange={(value) => { setSelectedAuthor(value.label)}}
-              />
+              data={authors}
+              dataKey="id"
+              textField="label"
+              defaultValue={"Choose authors"}
+              onChange={(value) => {
+                setSelectedAuthor(value.label);
+              }}
+            />
           </div>
-          <div className="w-full pt-4 md:pt-0 md:w-3/4"><News data={newsData.filter((item) => item.author === selectedAuthor)} /></div>
+          <div className="w-full pt-4 md:pt-0 md:w-3/4">
+            <News
+              data={newsData.filter((item) => item.author === selectedAuthor)}
+            />
+          </div>
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 
-import { changeData } from '../store/news/newsSlice';
+import { changeData } from "../store/news/newsSlice";
 import { getNewsByPage } from "../services/NewsService";
 
 function Paginiation({ data }) {
@@ -29,15 +29,14 @@ function Paginiation({ data }) {
   return (
     <nav className="flex justify-center pt-4">
       <ul className="inline-flex items-center -space-x-px">
-        {newsData.length > 0 && pageNumbers.map((number, key) => (
-          <li key={key} onClick={() => handleClick(number)}>
-            <span
-              className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              {number}
-            </span>
-          </li>
-        ))}
+        {newsData.length > 0 &&
+          pageNumbers.map((number, key) => (
+            <li key={key} onClick={() => handleClick(number)}>
+              <span className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                {number}
+              </span>
+            </li>
+          ))}
       </ul>
     </nav>
   );

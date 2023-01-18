@@ -35,14 +35,13 @@ function Navbar() {
         <div class="text-sm lg:flex-grow">
           {NavbarItems.filter((element) => element.name).map((item, index) => {
             return (
-              <a class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">
                 <NavLink
+                  className={"block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4"}
                   to={item.path}
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   {item.name}
                 </NavLink>
-              </a>
             );
           })}
         </div>

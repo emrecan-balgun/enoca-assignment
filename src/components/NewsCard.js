@@ -7,7 +7,7 @@ function NewsCard({ data }) {
         href={data.url}
         className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
       >
-        <img className="rounded-t-lg" src={data.urlToImage} alt="" />
+        <img className="rounded-t-lg" src={data.urlToImage} alt="news_img" />
         <div className="p-5">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {data.title}

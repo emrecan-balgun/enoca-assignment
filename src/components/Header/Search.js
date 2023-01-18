@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-
 import { useDispatch } from "react-redux";
-import { changeData, changeSearch } from "../../store/news/newsSlice";
 
+import { changeData, changeSearch } from "../../store/news/newsSlice";
 import { getNewsByQuery } from "../../services/NewsService";
 
 function Search() {

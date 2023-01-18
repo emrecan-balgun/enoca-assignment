@@ -9,8 +9,7 @@ function About() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
-  const toRotate = ["Web Developer", "Web Designer", "UI/UX Designer"];
+  const toRotate = ["Web Developer", "Frontend Developer", "Backend Developer"];
   const period = 2000;
 
   useEffect(() => {
@@ -38,15 +37,11 @@ function About() {
 
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
-      setIndex((prevIndex) => prevIndex - 1);
       setDelta(period);
     } else if (isDeleting && updatedText === "") {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
-      setIndex(1);
       setDelta(500);
-    } else {
-      setIndex((prevIndex) => prevIndex + 1);
     }
   };
 
@@ -72,9 +67,7 @@ function About() {
             learning new technologies and doing this job. Every day I am getting
             one step closer to my dream of being a full stack developer.
           </p>
-          <h2 className="text-2xl mt-4 mb-2 font-medium">
-            Tech stack:
-          </h2>
+          <h2 className="text-2xl mt-4 mb-2 font-medium">Tech stack:</h2>
           <div className="flex flex-row gap-4 md:gap-10 flex-wrap">
             <div className="flex flex-row gap-1 items-center">
               <AiFillCheckCircle size={18} />
@@ -103,7 +96,7 @@ function About() {
           </div>
         </div>
         <div className="hidden md:block md:w-1/2">
-          <img src={AboutImg} alt="about-img" />
+          <img src={AboutImg} alt="about_img" />
         </div>
       </div>
     </div>

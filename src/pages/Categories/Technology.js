@@ -5,7 +5,6 @@ import withLoading from '../../hoc/withLoading';
 import Header from "../../components/Header";
 import News from "../../components/News";
 import SearchQuery from "../../components/SearchQuery";
-
 import { getTechnologyNews } from "../../services/NewsService";
 import { changeData, changeSearch } from "../../store/news/newsSlice";
 
@@ -33,6 +32,7 @@ function Technology({ setLoading, loading }) {
   useEffect(() => {
     cleanSearchQuery();
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

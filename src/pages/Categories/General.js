@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import withLoading from '../../hoc/withLoading';
+import withLoading from "../../hoc/withLoading";
 import Header from "../../components/Header";
 import News from "../../components/News";
 import SearchQuery from "../../components/SearchQuery";
-
 import { getGeneralNews } from "../../services/NewsService";
 import { changeData, changeSearch } from "../../store/news/newsSlice";
 
@@ -33,6 +32,7 @@ function General({ setLoading, loading }) {
   useEffect(() => {
     cleanSearchQuery();
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

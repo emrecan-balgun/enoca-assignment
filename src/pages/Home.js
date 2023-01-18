@@ -6,7 +6,7 @@ import News from "../components/News";
 import NewsSlider from "../components/NewsSlider";
 import Paginiation from "../components/Paginiation";
 import SearchQuery from "../components/SearchQuery";
-import withLoading from '../hoc/withLoading';
+import withLoading from "../hoc/withLoading";
 import { getNews } from "../services/NewsService";
 import { changeData, changeSearch } from "../store/news/newsSlice";
 
@@ -39,6 +39,7 @@ function Home({ setLoading, loading }) {
   useEffect(() => {
     fetchData();
     cleanSearchQuery();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -48,7 +49,9 @@ function Home({ setLoading, loading }) {
         {searchQuery.length > 0 && <SearchQuery searchQuery={searchQuery} />}
         <NewsSlider data={newsData.slice(0, 3)} />
         <News data={newsData.slice(3)} />
-        {(!searchQuery.length > 0) &&<Paginiation data={{ totalResult, perPage }} /> }
+        {!searchQuery.length > 0 && (
+          <Paginiation data={{ totalResult, perPage }} />
+        )}
       </div>
     </>
   );
