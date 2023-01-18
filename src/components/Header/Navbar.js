@@ -29,7 +29,7 @@ function Navbar() {
         </button>
       </div>
       <div
-        class="w-full block flex-grow lg:flex lg:items-center lg:w-auto"
+        class="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto"
         id="menu"
       >
         <div class="text-sm lg:flex-grow">
